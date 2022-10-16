@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define ll long long
+ 
+int main() {
+	
+	 // added the two lines below for fast io
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); 
+    
+    ll n;
+    cin>>n;
+    ll arr[n];
+    map<ll,ll> mp;
+    set<ll> s;
+    for(int i = 0;i<n;i++){
+        cin>>arr[i];
+        s.insert(arr[i]);
+    }
+    int count =  s.size();
+    int arr2[count];
+    int k = 0;
+    for(ll ele:s){
+        arr2[k] = ele;
+        k++;
+    }
+    
+    // for(int i = 0;i<count;i++){
+    //     cout<<arr2[i]<<" ";
+    // }
+    
+    
+    for(int i = 0;i<count;i++){
+        mp[arr2[i]] = count - i -1 ;
+    }
+  
+    
+   for(int i = 0;i<n;i++){
+       arr[i] = mp[arr[i]];
+   }
+   
+   
+    
+    // for(int i = 0;i<n;i++){
+    //     cout<<arr[i]<<" ";
+    // }
+   
+    
+    map<ll,ll> mp2;
+    for(int i = 0;i<n;i++){
+        mp2[arr[i]]++;
+    }
+    
+    for(int i = 0;i<n;i++){
+        cout<<mp2[i]<<endl;
+    }
+    
+    
+	return 0;
+}
